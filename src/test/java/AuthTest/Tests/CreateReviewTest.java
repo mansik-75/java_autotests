@@ -8,7 +8,8 @@ public class CreateReviewTest extends TestBase {
     public void createReview() {
         applicationManager.getNavigation().OpenStartPage();
         applicationManager.getLogin().Login(user);
-        ReviewData review = new ReviewData("dune", "прикольный фильм");
+        ReviewData review = ReviewData.readFromFile("./TestData/review_create.xml");
+//        ReviewData review = new ReviewData("dune", "прикольный фильм");
         applicationManager.getReview().CreateReview(review);
         applicationManager.getNavigation().OpenPage("https://letterboxd.com/" + TestBase.user.getUsername() + "/films/reviews/");
         ReviewData createdReview = applicationManager.getReview().GetCreatedReview();

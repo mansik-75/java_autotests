@@ -10,7 +10,8 @@ public class UpdateReviewTest extends TestBase {
     public void updateReview() {
         applicationManager.getNavigation().OpenStartPage();
         applicationManager.getLogin().Login(user);
-        ReviewData review = new ReviewData("dune", "очень прикольный фильм");
+//        ReviewData review = new ReviewData("dune", "очень прикольный фильм");
+        ReviewData review = ReviewData.readFromFile("./TestData/review_update.xml");
         applicationManager.getNavigation().OpenPage("https://letterboxd.com/" + user.getUsername() + "/films/diary/");
         applicationManager.getReview().UpdateReview(review);
         applicationManager.getNavigation().OpenPage("https://letterboxd.com/" + user.getUsername() + "/films/reviews/");
