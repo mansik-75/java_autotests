@@ -2,7 +2,6 @@ package AuthTest.Models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.io.IOException;
 import java.nio.file.Files;
