@@ -51,6 +51,7 @@ public class ApplicationManager {
         return this.login;
     }
     public void stop() {
+        login.Logout();
         driver.quit();
     }
     public static ApplicationManager getInstance() {

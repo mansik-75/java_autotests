@@ -5,12 +5,9 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class CreateReviewTest extends TestBase {
+public class CreateReviewTest extends AuthBase {
     @Test
     public void createReview() {
-        applicationManager.getNavigation().OpenStartPage();
-        applicationManager.getLogin().Login(user);
-//        ReviewData review = ReviewData.readFromFile("./TestData/review_create.xml");
         List<ReviewData> reviews = ReviewData.readFromFileAsList("./TestData/reviewCreateList.xml");
         reviews.forEach((review) -> {
             applicationManager.getReview().CreateReview(review);
@@ -19,6 +16,5 @@ public class CreateReviewTest extends TestBase {
             Assert.assertEquals(review.getFilmName().toLowerCase(), createdReview.getFilmName().toLowerCase());
             Assert.assertEquals(review.getReview(), createdReview.getReview());
         });
-        applicationManager.getLogin().Logout();
     }
 }
